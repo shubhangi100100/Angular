@@ -1,0 +1,12 @@
+<table *ngIf="heroData!=undefined">
+<tr>
+   <td> hero ID </td>    
+<td> {{heroData.id}}</td>
+</tr>
+<tr>
+
+    
+<td> hero name</td>
+<td><input type="text" [(ngModel)]="heroData.name"></td>
+</tr>
+</table>

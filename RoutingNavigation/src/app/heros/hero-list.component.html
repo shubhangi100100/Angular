@@ -1,0 +1,20 @@
+<p>hero-list works!</p>
+<table>
+
+
+<tr type="text" (click)='onSelectedHero(heroObj)' *ngFor="let heroObj of heros"> 
+    <td>
+            {{heroObj.id}}
+    </td>
+<td>
+        {{heroObj.name}}
+</td>
+
+ </tr>
+</table>
+<app-hero-detail *ngIf="heroObj!=undefined" [heroData]="heroObj"></app-hero-detail>
+
+
+
+
+

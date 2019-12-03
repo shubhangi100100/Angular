@@ -1,0 +1,78 @@
+<h1> hello and welcome</h1>
+
+<input type="number" [(ngModel)]="power">
+<br/>
+
+<input type="number" [(ngModel)]="num">
+<p >
+    {{power|powerBoost:num}}
+</p>
+
+
+<!-- 
+<input type="text"[(ngModel)]= "userName">
+<br/>
+
+<input type="text"  [(ngModel)]= "name">
+
+<p> welcome {{name|reverse:name}}</p>
+
+<input type="text" [(ngModel)]="Gender">
+<table>
+   <tr>
+        <th>Name</th>
+        <th>Gender</th>
+   </tr>
+       
+
+<tr *ngFor="let studentObj of studentDetails|filterGender:Gender">
+
+<td>{{studentObj.name}}</td>
+<td>{{studentObj.gender}}</td>
+</tr>
+
+</table>
+-->
+<!-- 
+welcome: {{userName}}
+<p> hello {{userName}} 
+    <br/>
+    How are you? 
+    hope you are in good spirits. 
+</p>
+
+
+<button class="btn" [disabled]="userName===''" (click)="remove()">  reset </button>
+
+<button (click)="toggle()">Display Details</button>
+
+<p *ngIf="!show">
+hello, here we are checking the toggle properties
+
+    </p>
+
+
+<button (click)="count()">count</button>
+<p *ngFor="let m of msg"> 
+    <li [ngStyle]="m>='5'?{'background-color':'blue','color':'white'}:{'background-color':'white'}">
+
+  
+        {{m}}
+</li>
+</p>
+
+-->
+<!--
+<h2>Student Details</h2>
+<ul *ngFor="let city of cityList">
+    <li>
+        {{city.city}}
+        <ul *ngFor="let stud of city.student">
+            <li>{{stud.studentId}}{{stud.studentName}}</li>
+
+        </ul>
+    </li>
+
+</ul>
+-->
+
