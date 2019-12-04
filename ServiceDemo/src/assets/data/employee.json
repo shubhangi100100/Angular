@@ -1,0 +1,6 @@
+[
+    {"id":"1", "name":"shubhangi", "sal":"20000","designation":"developer"},
+    {"id":"2", "name":"rohan","sal":"26700","designation":"senior developer"},
+    {"id":"3","name":"prateek","sal":"30000","designation":"manager"},
+    {"id":"4", "name":"anu","sal":"24000","designation":"VP"}
+  ]
