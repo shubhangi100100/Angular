@@ -1,0 +1,126 @@
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<title> Configuration</title>
+</head>
+<body>
+
+    <div align="center"> 
+
+<h1> Configuration Page</h1>
+
+
+<form [formGroup]="configurationForm" (ngSubmit)="saveConfig()" >
+
+
+<label>Projects:</label>
+		<select formControlName="projectId">
+
+			 	 
+
+					<option *ngFor="let pro of project" value={{pro.projectId}} >{{pro.projectName}}</option>
+
+			
+
+        </select>
+			
+
+			
+
+
+			<div><label>Role:</label>
+
+				<select formControlName="roleId">
+
+				 	
+
+						<option *ngFor="let r of roles" value={{r.roleId}} >{{r.roleName}}</option>
+
+					
+
+                    </select></div>
+
+			
+			
+
+			<div><label>Location:</label>
+
+                <label>
+                    <input type="radio" name="location" value="offshore" formControlName="location" checked>
+                    offShore
+                  </label>
+
+                  <label>
+                    <input type="radio" name="location" value="onsite" formControlName="location">
+                    onsite
+                  </label>
+
+			</div>	
+
+			<div class="form-group">
+
+                    <label>Per Hour Billing  : </label>
+                    <input type="number" name="perHourBilling"  size="30" min="10" max="200" formControlName="perHourBilling" placeholder="Enter Per Hour Billing" required="required"/>
+		   
+
+			 </div>
+
+			
+
+			<div class="form-group">
+
+			    <button type="submit" class="btn btn-primary">Submit</button>
+
+			 </div>
+
+
+</form>
+
+
+</div>
+<table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>
+              Configuration Id
+            </th>
+            <th>
+              Project name
+            </th>
+            <th>
+              Role Name
+            </th>
+            <th>
+              Location
+            </th>
+            <th>
+              Per hour billing($)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let proj of  projConfig">
+            <td>
+              {{proj.configId}}
+            </td>
+            <td>
+              {{proj.pObj.projectName}}
+            </td>
+            <td>
+              {{proj.rObj.roleName}}
+            </td>
+            <td>
+              {{proj.location}}
+            </td>
+            <td>
+              {{proj.perHourBilling}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+</body>
+</html>

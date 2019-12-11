@@ -1,0 +1,44 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<div align="center">
+
+        <form  [formGroup]="allocationForm" (ngSubmit)="saveAllocate()">
+        <h1 align="center"> Project Allocation Page</h1>
+                        <label>Projects:</label>
+                    <select name="projectId" formControlName="projectId" >
+                          
+                            <option  *ngFor="let pro of project" value={{pro.projectId}}>{{pro.projectName}}</option>
+                      
+                    </select><br>
+                     <div>
+                    <label>Role:</label>
+                        <select name="roleId" formControlName="roleId">
+                              
+                                <option *ngFor="let r of roles" value={{r.roleId}}>{{r.roleName}}</option>
+                    
+                        </select>
+                    </div>
+                 <label>Location:</label>
+                    <div>
+                        <div class="custom-control custom-radio">	
+                             <input type="radio"  name="location" value="Onsite" formControlName="location"> Onsite
+                              <input type="radio"  name="location" value="Offshore" formControlName="location" checked> Offshore
+                            
+                            
+                            
+                        </div>
+                    </div>	
+                    <label>	Employees:</label>
+                    <select name="employeeId" formControlName="employeeId">
+                      
+                              
+                                <option *ngFor="let emp of employees" value={{emp.employeeId}}>{{emp.employeeName}} </option>
+                            
+                        </select>
+                        
+                    
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                         </div>
+                    </form>
+                    </div>
+                    
