@@ -1,0 +1,76 @@
+
+
+<div align="center">
+    <h1> View Report</h1>
+    <br>
+        <form [formGroup]="viewReportForm" (ngSubmit)="showReport()">
+        
+                            <div>
+        
+                                <label>Employee :</label>
+        
+                                <select name="employeeId" formControlName="employeeId" required="true">
+        
+                                     
+        
+                                        <option *ngFor="let emp of employee" value="{{emp.employeeId}}">{{emp.employeeName}}</option>
+        
+        
+                                </select><br>
+        
+                            </div>
+                            <div>
+        
+                                <label>Month :</label>
+        
+                                <select  formControlName="month" required="true">
+        
+                                    <option value="january">January</option>
+        
+                                    <option value="february">February</option>
+        
+                                    <option value="march">March</option>
+        
+                                    <option value="april">April</option>
+        
+                                    <option value="may">May</option>
+        
+                                    <option value="june">June</option>
+        
+                                    <option value="july">July</option>
+        
+                                    <option value="august">August</option>
+        
+                                    <option value="september">September</option>
+        
+                                    <option value="october">October</option>
+        
+                                    <option value="november">November</option>
+        
+                                    <option value="december">December</option>
+        
+                                </select>
+        
+                                <br>
+        
+                            </div>
+        
+                            
+        
+                        
+                
+                             <label>Year :</label>
+        
+                            <input type="number" formControlName="year" size="30"  placeholder="Select Year" required/><br>
+        
+                            
+        
+        
+                            <div align="center"  class="form-group" >
+        
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+        
+                            </div>
+        
+                        </form>
+                </div>		

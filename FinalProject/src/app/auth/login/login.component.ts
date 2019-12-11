@@ -10,6 +10,8 @@ import {FormBuilder, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   
+  
+ 
 
   constructor(private router: Router,private fb:FormBuilder, private userService:UserService) { }
   role:string;
@@ -35,9 +37,12 @@ export class LoginComponent implements OnInit {
     this.userService.validateUser(this.userForm.value.userId,this.userForm.value.password).subscribe
     (data=>{
       //alert("welcome user");
+    
       if(data==="Admin")
     {
       alert("welcome Admin");
+     
+
       this.router.navigate(['/admin'])
 
     }

@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import {UserService} from './user.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import { DeoDashboardComponent } from './DEO/deo-dashboard/deo-dashboard.component';
+import { AttendanceComponent } from './DEO/attendance/attendance.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    DeoDashboardComponent,
+    AttendanceComponent
   ],
   imports: [
     BrowserModule,

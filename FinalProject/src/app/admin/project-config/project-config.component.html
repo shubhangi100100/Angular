@@ -19,7 +19,7 @@
 		<select formControlName="projectId">
 
 			 	 
-
+        <option value="">----Select Project--------</option>
 					<option *ngFor="let pro of project" value={{pro.projectId}} >{{pro.projectName}}</option>
 
 			
@@ -34,7 +34,7 @@
 
 				<select formControlName="roleId">
 
-				 	
+            <option value="">----Select Role--------</option>
 
 						<option *ngFor="let r of roles" value={{r.roleId}} >{{r.roleName}}</option>
 
@@ -48,12 +48,12 @@
 			<div><label>Location:</label>
 
                 <label>
-                    <input type="radio" name="location" value="offshore" formControlName="location" checked>
+                    <input type="radio" name="location" value="Offshore" formControlName="location" checked>
                     offShore
                   </label>
 
                   <label>
-                    <input type="radio" name="location" value="onsite" formControlName="location">
+                    <input type="radio" name="location" value="Onsite" formControlName="location">
                     onsite
                   </label>
 
@@ -80,6 +80,7 @@
 
 
 </div>
+
 <table class="table table-striped table-bordered table-hover">
         <thead class="thead-dark">
           <tr>
@@ -120,6 +121,7 @@
           </tr>
         </tbody>
       </table>
+
 
 
 </body>

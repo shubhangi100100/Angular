@@ -15,14 +15,14 @@ export class ProjectAllocationComponent implements OnInit {
   project:any;
   roles:any;
   employees:any;
+  Employee: any;
 
   constructor(public fb:FormBuilder,private admin:AdminService) { }
   allocationForm = new FormGroup({
-    allocationId: new FormControl(''),
-    pcObj: new FormControl(ProjectConfig),
-
-    eObj: new FormControl(Employee),
-    location: new FormControl('')
+    projectId: new FormControl(this.project),
+    roleId: new FormControl(this.roles),
+    location: new FormControl(''),
+    employeeId: new FormControl(this.employees)
 
   });
    
@@ -44,5 +44,35 @@ export class ProjectAllocationComponent implements OnInit {
     console.log('error occurred', error);
 });
   }
+  saveAllocate(){
+
+    console.log(this.allocationForm.value.projectId,this.allocationForm.value.roleId,this.allocationForm.value.employeeId,this.allocationForm.value.location);
+
+    //this.allocationForm.reset();
+
+    this.admin.saveAllocation(this.allocationForm.value.projectId,this.allocationForm.value.roleId,this.allocationForm.value.employeeId,this.allocationForm.value.location).subscribe(
+        
+      data=>{
+
+        console.log(data);
+        if(data===true){
+          alert("Allocation Done..");
+        }
+        else {
+          alert("Project hasnt been configured yet")
+        }
+        this.allocationForm.reset();
+      },
+        
+
+    error=>{
+
+  
+
+      alert("Some error occurred");
+  });
+
+  }
+
 }
 

@@ -5,14 +5,14 @@
         <h1 align="center"> Project Allocation Page</h1>
                         <label>Projects:</label>
                     <select name="projectId" formControlName="projectId" >
-                          
+                            <option value="">----Select Project--------</option>
                             <option  *ngFor="let pro of project" value={{pro.projectId}}>{{pro.projectName}}</option>
                       
                     </select><br>
                      <div>
                     <label>Role:</label>
                         <select name="roleId" formControlName="roleId">
-                              
+                                <option value="">----Select Roles--------</option>
                                 <option *ngFor="let r of roles" value={{r.roleId}}>{{r.roleName}}</option>
                     
                         </select>
@@ -30,7 +30,7 @@
                     <label>	Employees:</label>
                     <select name="employeeId" formControlName="employeeId">
                       
-                              
+                            <option value="">----Select Employees--------</option>
                                 <option *ngFor="let emp of employees" value={{emp.employeeId}}>{{emp.employeeName}} </option>
                             
                         </select>

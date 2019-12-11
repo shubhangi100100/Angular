@@ -36,9 +36,19 @@ export class AdminService {
     console.log(this._url);
     return this.http.get<Employee[]>(this._url+ '/getEmployees');
   }
-  saveAllocate(projectId,employeeId,location){
-    return this.http.post<any>(this._url+'/saveAllocate?projectId='+projectId+'&&employeeId='+employeeId+'&&location='+location, {responseType: 'text' as 'json'});
+  saveAllocation(projectId,roleId,employeeId,location){
+    console.log(this._url);
+    return this.http.post<any>(this._url+'/saveAllocate?projectId='+projectId+'&&roleId='+roleId+'&&employeeId='+employeeId+'&&location='+location, 
+    {responseType: 'text' as 'json'});
 
   }
+  getReport(employeeId,month,year){
+    console.log(this._url);
+    return this.http.get<any>(this._url+'/viewReport?employeeId='+employeeId+'&&month='+month+'&&year='+year,
+    {responseType: 'text' as 'json'});
+
+  }
+  
+  
 
 }
