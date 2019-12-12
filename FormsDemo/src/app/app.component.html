@@ -1,7 +1,7 @@
 <div classs="container-fluid">
   <h1> Add person</h1>
   <form #personForm="ngForm" (ngSubmit)="onSubmit()" noValidate>
-    {{personForm.value|json}}
+    <!--{{personForm.value|json}}
     <hr/>
     {{personObj|json}}
     <div class="form-group">
@@ -39,7 +39,6 @@
 
         <input type="radio"  class="custom-control custom-radio custom-control-inline" name="gender" [(ngModel)]="personObj.gender" value="male"  #gender="ngModel" required>male
         <input type="radio"  class="custom-control custom-radio custom-control-inline" name="gender" [(ngModel)]="personObj.gender" value="female"  #gender="ngModel" required>female
-      
       </div>
 <div align="center">
 
@@ -47,4 +46,40 @@
 <button type="submit" class="btn btn-success" [disabled]="personForm.form.invalid"> add person</button>
 </div>
   </form>
-</div>
+</div>-->
+<div class="form-group">
+  <label> name: </label>
+  <input type="text" class="form-control" formControlName="personName"
+  [class.is-invalid]="personName.invalid && personName.touched">
+  <div *ngIf="personName.errors?.required" class="alert-danger">Name is needed</div>
+  <div *ngIf="personName.errors?.minlength" class="alert-danger"> name should be atleast 3 letters</div>
+  <small class="text-danger" [class.d-none]="personName.valid||personName.untouched">
+    Name is required
+  </small>
+  </div>
+  <div class="form-group">
+    <label> age: </label>
+    <input type="text" class="form-control" formControlName="age" 
+    [class.is-invalid]="age.invalid && age.touched">
+    <small class="text-danger" [class.d-none]="age.valid||age.untouched">
+      age is required
+    </small>
+    </div>
+    <div class="form-group">
+      <label> password: </label>
+      <input type="password" class="form-control" formControlName="password"
+      [class.is-invalid]="password.invalid && password.touched">
+      <small class="text-danger" [class.d-none]="password.valid||password.untouched">
+        password is required
+      </small>
+      </div>
+      <div class="form-group">
+        <label> gender: </label>
+        <br/>
+
+        <input type="radio"  class="custom-control custom-radio custom-control-inline" formControlName="gender"  value="male"   required>male
+        <input type="radio"  class="custom-control custom-radio custom-control-inline" formControlName="gender" value="female"   required>female
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="personForm.form.invalid"> add person</button>
+    </div>
+      </form>
