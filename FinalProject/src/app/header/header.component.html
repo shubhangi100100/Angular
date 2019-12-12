@@ -24,11 +24,12 @@
           <ul class="navbar-nav mr-auto col-sm-3 col-md-3">
             
             <li class="nav-item active">
-              <a class="nav-link" routerLink="/about">About Us</a>
+              <a class="nav-link" *ngIf="router.url==='/banner'||router.url==='/login'" routerLink="/about">About Us</a>
             </li>
             <li class="nav-item active">
-                    <a class="nav-link" routerLink="/contact">Contact Us</a>
+                    <a class="nav-link" *ngIf="router.url==='/banner'||router.url==='/login'" routerLink="/contact">Contact Us</a>
                   </li>
+    
                   <li class="nav-item active"> 
                  <a class="nav-link" (click)="logout()" *ngIf="router.url==='/admin'||router.url==='/deo'">LogOut</a>
                 </li>
@@ -39,12 +40,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" *ngIf="router.url==='/deo/deo/setAtt'" routerLink="/deo">Home</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" *ngIf="router.url==='/about'" routerLink="/">Home</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" *ngIf="router.url==='/contact'" routerLink="/">Home</a>
-                </li>
+                
 			<li class="nav-item active">
         <a class="nav-link" *ngIf="router.url==='/banner'" routerLink="/login">Log In</a>
      
