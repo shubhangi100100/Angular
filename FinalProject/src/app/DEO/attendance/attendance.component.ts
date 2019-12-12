@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators, RequiredValidator } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 import { DeoService } from 'src/app/deo.service';
 import { Attendance } from 'src/app/Attendance';
@@ -16,13 +16,32 @@ export class AttendanceComponent implements OnInit {
   constructor(public fb:FormBuilder,private admin:AdminService,private deo:DeoService) { }
 
   attendanceForm= this.fb.group({
-    projectId: [''],
-    employeeId: [''],
-    month:[''],
-    year:[''],
-    halfDay:[''],
-    fullDay:['']
-  });
+    projectId: ['', Validators.required],
+    employeeId: ['',Validators.required],
+    month:['',Validators.required],
+    year:['',Validators.required],
+    halfDay:['',Validators.required],
+    fullDay:['',Validators.required]
+  })
+
+  get projectId(){
+    return this.attendanceForm.get('projectId');
+  }
+  get employeeId(){
+    return this.attendanceForm.get('employeeId');
+  }
+  get month(){
+    return this.attendanceForm.get('month');
+  }
+  get year(){
+    return this.attendanceForm.get('year');
+  }
+  get halfDay(){
+    return this.attendanceForm.get('halfDay');
+  }
+  get fullDay(){
+    return this.attendanceForm.get('fullDay');
+  }
 
   ngOnInit() {
     this.admin.getAllProjects().subscribe(data=>{this.project=data; console.log(this.project)},

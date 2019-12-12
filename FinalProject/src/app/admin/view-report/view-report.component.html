@@ -9,7 +9,8 @@
         
                                 <label>Employee :</label>
         
-                                <select name="employeeId" formControlName="employeeId" required="true">
+                                <select name="employeeId" formControlName="employeeId" required="true" 
+                                [class.is-invalid]="employeeId.invalid && employeeId.touched">
         
                                      
         
@@ -17,13 +18,13 @@
         
         
                                 </select><br>
-        
+                                <small class="text-danger" [class.d-none]="employeeId.valid||employeeId.untouched"> enter the required employee</small>
                             </div>
                             <div>
         
                                 <label>Month :</label>
         
-                                <select  formControlName="month" required="true">
+                                <select  formControlName="month" required="true" [class.is-invalid]="month.invalid && month.touched">
         
                                     <option value="january">January</option>
         
@@ -52,20 +53,23 @@
                                 </select>
         
                                 <br>
-        
+                                <small class="text-danger" [class.d-none]="month.valid||month.untouched">Please enter month.</small>
                             </div>
         
                             
         
-                        
+                        <div>
+
+                    
                 
                              <label>Year :</label>
         
-                            <input type="number" formControlName="year" size="30"  placeholder="Select Year" required/><br>
+                            <input type="number" formControlName="year" size="30"  placeholder="Select Year"
+                            [class.is-invalid]="year.invalid && year.touched" required/><br>
         
-                            
+                            <small class="text-danger" [class.d-none]="year.valid||year.untouched">Please enter year</small>
         
-        
+                        </div>
                             <div align="center"  class="form-group" >
         
                                         <button type="submit" class="btn btn-primary">Submit</button>

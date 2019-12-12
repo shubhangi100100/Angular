@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 import { Roles } from 'src/app/Role';
 import { Project } from 'src/app/Project';
@@ -19,14 +19,26 @@ export class ProjectAllocationComponent implements OnInit {
 
   constructor(public fb:FormBuilder,private admin:AdminService) { }
   allocationForm = new FormGroup({
-    projectId: new FormControl(this.project),
-    roleId: new FormControl(this.roles),
-    location: new FormControl(''),
-    employeeId: new FormControl(this.employees)
+    projectId: new FormControl(this.project,Validators.required),
+    roleId: new FormControl(this.roles,Validators.required),
+    location: new FormControl('',Validators.required),
+    employeeId: new FormControl(this.employees,Validators.required)
 
   });
-   
+  get projectId(){
+    return this.allocationForm.get('projectId');
+  }
+  get roleId(){
+    return this.allocationForm.get('roleId');
+  }
+  get location(){
+    return this.allocationForm.get('location');
+  }
+  get employeeId(){
+    return this.allocationForm.get('employeeId');
+  }
 
+  
 
 
   ngOnInit() {

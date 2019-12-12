@@ -8,6 +8,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { DeoDashboardComponent } from './DEO/deo-dashboard/deo-dashboard.component';
 import { AttendanceComponent } from './DEO/attendance/attendance.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -16,7 +18,9 @@ import { AttendanceComponent } from './DEO/attendance/attendance.component';
     AppComponent,
     routingComponents,
     DeoDashboardComponent,
-    AttendanceComponent
+    AttendanceComponent,
+    ContactComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -6,12 +6,14 @@
     
             <label>Project :</label>
     
-             <select name="projectId" formControlName="projectId" (change)="projectselect($event.target.value)" required="true">
+             <select name="projectId" formControlName="projectId" (change)="projectselect($event.target.value)" required="true"
+             [class.is-invalid]="projectId.invalid && projectId.touched">
                
           <option *ngFor="let pro of project" value="{{pro.projectId}}">{{pro.projectName}}</option>
-    
+                
              </select> 
-    
+            
+             <small class="text-danger" [class.d-none]="projectId.valid||projectId.untouched">Project is required..</small>
             <br>
     
             </div>
@@ -19,17 +21,17 @@
     
             <label>Employees Under project :</label>
     
-            <select name="employeeId" formControlName="employeeId" required="true">
+            <select name="employeeId" formControlName="employeeId" required="true" [class.is-invalid]="employeeId.invalid && employeeId.touched">
                 <option *ngFor="let emp of employee" value="{{emp.employeeId}}">{{emp.employeeName}}</option>
                 </select><br>
-            
+                <small class="text-danger" [class.d-none]="employeeId.valid||employeeId.untouched">Employee is required..</small>
             </div>
             
             <div>
     
             <label>Month :</label>
     
-            <select formControlName="month" required="true">
+            <select [class.is-invalid]="month.invalid && month.touched" formControlName="month" required="true">
     
                 <option value="january">January</option>
     
@@ -58,7 +60,9 @@
             </select>
     
             <br>
-    
+            
+            
+            <small class="text-danger" [class.d-none]="month.valid||month.untouched">Please select month</small>
             </div>
     
             
@@ -66,19 +70,21 @@
           
 
             <div>
-                    <input type="number" formControlName="year" required="true">
+                    <input type="number" formControlName="year" [class.is-invalid]="year.invalid && year.touched" required="true">
+                    <small class="text-danger" [class.d-none]="year.valid||year.untouched">Please select year</small>
                 </div>
         
             
             
             <br>
-    
+                
             <div>
     
             <label>Half day:</label>
     
-            <input type="number" formControlName="halfDay"  size="30" max="30"  placeholder="Enter Number of Half Days" required="true" /><br>
-    
+            <input type="number" formControlName="halfDay"  size="30" max="30"  placeholder="Enter Number of Half Days" [class.is-invalid]="halfDay.invalid && halfDay.touched"
+            required="true" /><br>
+            <small class="text-danger" [class.d-none]="halfDay.valid||halfDay.untouched">Half day input is empty</small>
             </div>
     
             
@@ -87,8 +93,8 @@
     
                 <label>Full Day:</label>
     
-                <input type="number" formControlName="fullDay" size="30" max="30" placeholder="Enter Number of Full Days" required="true"/><br>
-    
+                <input type="number" formControlName="fullDay" size="30" max="30" placeholder="Enter Number of Full Days" [class.is-invalid]="fullDay.invalid && fullDay.touched" required="true"/><br>
+                <small class="text-danger" [class.d-none]="fullDay.valid||fullDay.untouched">Full day input is empty</small>
             </div>
     
             

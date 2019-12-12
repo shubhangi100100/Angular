@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 import { ProjectConfig } from 'src/app/ProjectConfig';
 import { HttpClient } from '@angular/common/http';
@@ -26,15 +26,28 @@ export class ProjectConfigComponent implements OnInit {
   }
 
   configurationForm= this.fb.group({
-    configId: [''],
-    location: [''],
-    perHourBilling:[''],
-    projectId:[''],
-    roleId:['']
+    configId: ['',Validators.required],
+    location: ['',Validators.required],
+    perHourBilling:['',Validators.required],
+    projectId:['',Validators.required],
+    roleId:['',Validators.required]
 
 
 
   })
+  get projectId(){
+    return this.configurationForm.get('projectId');
+  }
+  get roleId(){
+    return this.configurationForm.get('roleId');
+  }
+  get location(){
+    return this.configurationForm.get('location');
+  }
+  get perHourBilling(){
+    return this.configurationForm.get('perHourBilling');
+  }
+
 
   ngOnInit() {
  this.admin.getAllProjects().subscribe(data=>{this.project=data; console.log(this.project)},

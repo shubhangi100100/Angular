@@ -14,33 +14,37 @@
 
 <form [formGroup]="configurationForm" (ngSubmit)="saveConfig()" >
 
+<div>
 
 <label>Projects:</label>
-		<select formControlName="projectId">
+		<select formControlName="projectId" [class.is-invalid]="projectId.invalid && projectId.touched">
 
 			 	 
-        <option value="">----Select Project--------</option>
+       
 					<option *ngFor="let pro of project" value={{pro.projectId}} >{{pro.projectName}}</option>
 
 			
 
         </select>
 			
-
+ <small class="text-danger" [class.d-none]="projectId.valid||projectId.untouched">Project is required..</small>
 			
+</div>
 
 
 			<div><label>Role:</label>
 
-				<select formControlName="roleId">
+				<select formControlName="roleId" [class.is-invalid]="roleId.invalid && roleId.touched">
 
-            <option value="">----Select Role--------</option>
+            
 
 						<option *ngFor="let r of roles" value={{r.roleId}} >{{r.roleName}}</option>
 
 					
 
-                    </select></div>
+                    </select>
+                    <small class="text-danger" [class.d-none]="roleId.valid||roleId.untouched">role is required..</small>
+                  </div>
 
 			
 			
@@ -48,23 +52,27 @@
 			<div><label>Location:</label>
 
                 <label>
-                    <input type="radio" name="location" value="Offshore" formControlName="location" checked>
+                    <input type="radio" name="location" value="Offshore" formControlName="location" 
+                    [class.is-invalid]="location.invalid && location.touched" checked>
                     offShore
                   </label>
 
                   <label>
-                    <input type="radio" name="location" value="Onsite" formControlName="location">
+                    <input type="radio" name="location" value="Onsite" formControlName="location"
+                    [class.is-invalid]="location.invalid && location.touched">
                     onsite
                   </label>
+                  <small class="text-danger" [class.d-none]="location.valid||location.untouched">location is required..</small>
 
 			</div>	
 
 			<div class="form-group">
 
                     <label>Per Hour Billing  : </label>
-                    <input type="number" name="perHourBilling"  size="30" min="10" max="200" formControlName="perHourBilling" placeholder="Enter Per Hour Billing" required="required"/>
-		   
-
+                    <input type="number" name="perHourBilling"  size="30" min="10" max="200" formControlName="perHourBilling" placeholder="Enter Per Hour Billing" 
+                    [class.is-invalid]="perHourBilling.invalid && perHourBilling.touched" required="required"/>
+                    <small class="text-danger" [class.d-none]="perHourBilling.valid||perHourBilling.untouched">per Hour Billing is needed..</small>
+                  
 			 </div>
 
 			

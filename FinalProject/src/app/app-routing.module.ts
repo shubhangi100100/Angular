@@ -10,6 +10,8 @@ import { ProjectAllocationComponent } from './admin/project-allocation/project-a
 import { DeoDashboardComponent } from './DEO/deo-dashboard/deo-dashboard.component';
 import { AttendanceComponent } from './DEO/attendance/attendance.component';
 import { ViewReportComponent } from './admin/view-report/view-report.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const routes: Routes = [
@@ -23,7 +25,10 @@ const routes: Routes = [
   {path:'admin/admin/getConfig', component:ProjectConfigComponent},
   {path:'admin/admin/getAllocation', component:ProjectAllocationComponent},
   {path:'deo/deo/setAtt', component:AttendanceComponent},
-  {path:'admin/admin/viewReport', component:ViewReportComponent}
+  {path:'admin/admin/viewReport', component:ViewReportComponent},
+  {path:'about',component:AboutComponent},
+  {path:'contact',component:ContactComponent}
+  
 
 ];
 
@@ -34,5 +39,6 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents=[
 HeaderComponent, BannerComponent, FooterComponent, LoginComponent, AdminDashboardComponent,
-ProjectConfigComponent,ProjectAllocationComponent,DeoDashboardComponent,AttendanceComponent,ViewReportComponent
+ProjectConfigComponent,ProjectAllocationComponent,DeoDashboardComponent,AttendanceComponent,ViewReportComponent,
+AboutComponent,ContactComponent
 ]

@@ -17,6 +17,15 @@ export class ViewReportComponent implements OnInit {
     month:[''],
     year:['']
   })
+  get employeeId(){
+    return this.viewReportForm.get('employeeId');
+  }
+  get month(){
+    return this.viewReportForm.get('month');
+  }
+  get year(){
+    return this.viewReportForm.get('year');
+  }
 
   ngOnInit() {
     this.admin.getAllEmployees()
@@ -37,12 +46,12 @@ export class ViewReportComponent implements OnInit {
       this.admin.getReport(this.viewReportForm.value.employeeId,this.viewReportForm.value.month,this.viewReportForm.value.year)
       .subscribe(
         data=>{
-          alert("View Done successfully" +data);
-
+          alert("bill amount for the selected employee is" +data);
+          this.viewReportForm.reset(); 
 
         },
         error=>{
-          alert("Allready Presented this view");
+          alert("some error occurred");
         }
       );
 

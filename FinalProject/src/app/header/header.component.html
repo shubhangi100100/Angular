@@ -29,8 +29,24 @@
             <li class="nav-item active">
                     <a class="nav-link" routerLink="/contact">Contact Us</a>
                   </li>
+                  <li class="nav-item active"> 
+                 <a class="nav-link" (click)="logout()" *ngIf="router.url==='/admin'||router.url==='/deo'">LogOut</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" *ngIf="router.url==='/admin/admin/getConfig'||router.url==='/admin/admin/viewReport'||router.url==='/admin/admin/getAllocation'" routerLink="/admin">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" *ngIf="router.url==='/deo/deo/setAtt'" routerLink="/deo">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" *ngIf="router.url==='/about'" routerLink="/">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" *ngIf="router.url==='/contact'" routerLink="/">Home</a>
+                </li>
 			<li class="nav-item active">
-        <a class="nav-link" routerLink="/login">Log In</a>
+        <a class="nav-link" *ngIf="router.url==='/banner'" routerLink="/login">Log In</a>
      
 
 

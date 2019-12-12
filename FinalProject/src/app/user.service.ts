@@ -14,8 +14,7 @@ export class UserService {
    }
    validateUser(userId:any, password:any):Observable<string>
    {
-    return this.http.post<any>("http://localhost:1234/BillingManagementSystem_Middle/validateUser?userId="+userId+"&&password="+password,null,
-    {responseType:'text' as 'json'});
+    return this.http.post<any>("http://localhost:1234/BillingManagementSystem_Middle/validateUser?userId="+userId+"&&password="+password,null);
 
    }
 }

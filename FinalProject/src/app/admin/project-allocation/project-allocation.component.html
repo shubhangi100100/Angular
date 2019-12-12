@@ -3,39 +3,49 @@
 
         <form  [formGroup]="allocationForm" (ngSubmit)="saveAllocate()">
         <h1 align="center"> Project Allocation Page</h1>
+        <div>
+
+       
                         <label>Projects:</label>
-                    <select name="projectId" formControlName="projectId" >
-                            <option value="">----Select Project--------</option>
+                    <select name="projectId" formControlName="projectId" [class.is-invalid]="projectId.invalid && projectId.touched" >
+                           
                             <option  *ngFor="let pro of project" value={{pro.projectId}}>{{pro.projectName}}</option>
                       
                     </select><br>
+                    <small class="text-danger" [class.d-none]="projectId.valid||projectId.untouched">Project is required..</small>
+                </div>
                      <div>
                     <label>Role:</label>
-                        <select name="roleId" formControlName="roleId">
-                                <option value="">----Select Roles--------</option>
+                        <select name="roleId" formControlName="roleId" [class.is-invalid]="roleId.invalid && roleId.touched" >
+                                
                                 <option *ngFor="let r of roles" value={{r.roleId}}>{{r.roleName}}</option>
                     
                         </select>
+                        <small class="text-danger" [class.d-none]="roleId.valid||roleId.untouched">role is required..</small>
                     </div>
                  <label>Location:</label>
                     <div>
                         <div class="custom-control custom-radio">	
-                             <input type="radio"  name="location" value="Onsite" formControlName="location"> Onsite
-                              <input type="radio"  name="location" value="Offshore" formControlName="location" checked> Offshore
+                             <input type="radio"  name="location" value="Onsite" formControlName="location" [class.is-invalid]="location.invalid && location.touched"> Onsite
+                              <input type="radio"  name="location" value="Offshore" formControlName="location" 
+                              [class.is-invalid]="location.invalid && location.touched" checked> Offshore
+                            </div>
+                              <small class="text-danger" [class.d-none]="location.valid||location.untouched">location is required..</small>
                             
-                            
-                            
-                        </div>
-                    </div>	
+                        
+                    </div>
+                    <div>
+
+                    
                     <label>	Employees:</label>
-                    <select name="employeeId" formControlName="employeeId">
+                    <select name="employeeId" formControlName="employeeId" [class.is-invalid]="employeeId.invalid && employeeId.touched" >
                       
-                            <option value="">----Select Employees--------</option>
                                 <option *ngFor="let emp of employees" value={{emp.employeeId}}>{{emp.employeeName}} </option>
                             
                         </select>
                         
-                    
+                    <small class="text-danger" [class.d-none]="employeeId.valid||employeeId.untouched">employee is required..</small>
+                </div>	
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
                          </div>
