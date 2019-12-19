@@ -71,7 +71,7 @@ export class ProjectAllocationComponent implements OnInit {
           alert("Allocation Done..");
         }
         else {
-          alert("Project hasnt been configured yet")
+          alert("Some issue occurred");
         }
         this.allocationForm.reset();
       },

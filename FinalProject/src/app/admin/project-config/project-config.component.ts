@@ -84,6 +84,7 @@ this.http.post(this._url+'/saveConfig',this.pconfig)
   .subscribe(data => {
 
     this.x=data;
+    
 
     console.log(this.x)
 
@@ -94,7 +95,7 @@ this.http.post(this._url+'/saveConfig',this.pconfig)
   },
 
       error => {
-
+        
         console.log('It seems this project is already configured',error); 
 
       }
@@ -104,7 +105,7 @@ this.http.post(this._url+'/saveConfig',this.pconfig)
   },
 
     error => {
-
+      
       console.log('Error ocurred 101',error); 
 
     }

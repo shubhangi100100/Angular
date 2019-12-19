@@ -81,16 +81,16 @@ export class AttendanceComponent implements OnInit {
 
     data=>{
 
-      alert("attendance marked successfully");
+      alert(data);
 
-     // this.attendanceForm.reset(); 
+     this.attendanceForm.reset(); 
     },
 
     error=>{
 
     
 
-        alert("Attendance already marked ");
+        alert();
 
     
 
